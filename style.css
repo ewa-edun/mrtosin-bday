@@ -415,12 +415,20 @@ body {
     
     .main-page .letter-container {
         padding: 20px;
-        width: 90%;
+        width: 75%;
         max-width: none;
     }
     
-    .main-page .message {
-        font-size: 1.1em;
+    .letter-signature {
+        text-align: right;
+        margin-top: 0;
+        font-style: italic;
+      }
+      .main-page .message {
+        font-size: 1.2em;
+        line-height: 1.6;
+        margin: 20px -2px;
+        animation: fadeIn 1s ease-in-out;
     }
 
     .letter-paper {
