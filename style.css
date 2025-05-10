@@ -237,9 +237,9 @@ body {
     max-width: 800px;
     margin: 0 auto;
     border: 2px solid #C08552;
-  }
-  
-  .letter-edge {
+}
+
+.letter-edge {
     position: absolute;
     top: 0;
     left: 0;
@@ -252,56 +252,56 @@ body {
       radial-gradient(circle at 100% 0, transparent 15px, #FFF2E1 15px),
       radial-gradient(circle at 100% 100%, transparent 15px, #FFF2E1 15px),
       radial-gradient(circle at 0 100%, transparent 15px, #FFF2E1 15px);
-  }
-  
-  .letter-date {
+}
+
+.letter-date {
     text-align: right;
     font-style: italic;
     margin-bottom: 20px;
     color: #895737;
-  }
-  
-  .letter-content {
+}
+
+.letter-content {
     position: relative;
     z-index: 1;
-  }
-  
-  .letter-signature {
+}
+
+.letter-signature {
     text-align: right;
     margin-top: 30px;
     font-style: italic;
-  }
-  
-  .letter-decoration {
+}
+
+.letter-decoration {
     position: absolute;
     width: 100px;
     height: 100px;
-  }
-  
-  .letter-decoration.left {
+}
+
+.letter-decoration.left {
     bottom: 20px;
     left: 20px;
     background-image: url('flower.png');
     background-size: contain;
     background-repeat: no-repeat;
-  }
-  
-  .letter-decoration.right {
+}
+
+.letter-decoration.right {
     top: 20px;
     right: 20px;
     background-image: url('butterfly.png');
     background-size: contain;
     background-repeat: no-repeat;
-  }
+}
 
-  .letter-paper {
+.letter-paper {
     animation: paperFloat 3s ease-in-out infinite;
-  }
-  
-  @keyframes paperFloat {
+}
+
+@keyframes paperFloat {
     0%, 100% { transform: translateY(0); }
     50% { transform: translateY(-10px); }
-  }
+}
 
 /* Gallery Page */
 .gallery-page .gallery-container {
@@ -409,22 +409,41 @@ body {
 
 /* Consolidated responsive styles */
 @media (max-width: 768px) {
-    .landing-page h1 {
-        font-size: 2.5em;
+    .page {
+        position: absolute;
+        min-height: 100vh;
+        height: auto;
     }
-    
+
+    .page .animated-background {
+        position: fixed;
+        min-height: 100vh;
+    }
+
+    .main-page {
+        overflow-y: auto;
+        padding: 20px 0;
+        min-height: 100vh;
+        height: auto;
+        display: flex;
+        align-items: flex-start;
+        justify-content: center;
+        position: absolute; /* Change from fixed to absolute */
+    }
+
     .main-page .letter-container {
+        position: relative;
+        top: auto;
+        left: auto;
+        transform: none;
         padding: 20px;
-        width: 75%;
+        width: 90%;
         max-width: none;
+        margin: 20px auto;
+        height: auto;
     }
     
-    .letter-signature {
-        text-align: right;
-        margin-top: 0;
-        font-style: italic;
-      }
-      .main-page .message {
+    .main-page .message {
         font-size: 1.2em;
         line-height: 1.6;
         margin: 20px -2px;
