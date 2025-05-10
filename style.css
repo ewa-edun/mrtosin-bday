@@ -1,0 +1,552 @@
+/* Global Styles */
+body {
+    margin: 0;
+    padding: 0;
+    font-family: 'Edu QLD Beginner', cursive;
+    color: #6B0000;
+}
+
+/* Page Transitions */
+.page {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100vh;
+    opacity: 0;
+    visibility: hidden;
+    transition: opacity 0.5s ease-in-out;
+}
+
+.page.active {
+    opacity: 1;
+    visibility: visible;
+}
+
+/* Animated Background for all pages */
+.page .animated-background {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(45deg, #800000, #6B0000);
+    overflow: hidden;
+    z-index: 0;
+}
+
+/* Particle Animation for all pages */
+.page .particle-container {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    z-index: 1;
+}
+
+.page .particle {
+    position: absolute;
+    width: 5px;
+    height: 5px;
+    background: #FFF2E1;
+    border-radius: 50%;
+    box-shadow: 0 0 5px rgba(255,255,255,0.5);
+    animation: particleAnimation 5s infinite;
+}
+
+@keyframes particleAnimation {
+    0% {
+        transform: translate(0, 0) rotate(0deg);
+        opacity: 0;
+    }
+    50% {
+        transform: translate(50px, 50px) rotate(180deg);
+        opacity: 1;
+    }
+    100% {
+        transform: translate(0, 0) rotate(360deg);
+        opacity: 0;
+    }
+}
+
+/* Flower Animation for all pages */
+.page .flower-container {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    z-index: 1;
+}
+
+.page .flower {
+    position: absolute;
+    width: 30px;
+    height: 30px;
+    background: #6B0000;
+    border-radius: 50%;
+    animation: flowerAnimation 3s infinite;
+}
+
+.page .flower::before,
+.page .flower::after {
+    content: '';
+    position: absolute;
+    width: 20px;
+    height: 20px;
+    background: #800000;
+    border-radius: 50%;
+}
+
+.page .flower::before {
+    top: -10px;
+    left: -10px;
+}
+
+.page .flower::after {
+    bottom: -10px;
+    right: -10px;
+}
+
+@keyframes flowerAnimation {
+    0% {
+        transform: scale(1) rotate(0deg);
+        opacity: 0.5;
+    }
+    50% {
+        transform: scale(1.2) rotate(180deg);
+        opacity: 1;
+    }
+    100% {
+        transform: scale(1) rotate(360deg);
+        opacity: 0.5;
+    }
+}
+
+/* Heart Animation for all pages */
+.page .heart-container {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    z-index: 1;
+}
+
+.page .heart {
+    position: absolute;
+    width: 20px;
+    height: 20px;
+    background: #895737;
+    transform: rotate(45deg);
+    animation: heartAnimation 4s infinite;
+}
+
+.page .heart::before,
+.page .heart::after {
+    content: '';
+    position: absolute;
+    width: 20px;
+    height: 20px;
+    border-radius: 50%;
+    background: inherit;
+}
+
+.page .heart::before {
+    top: -10px;
+    left: 0;
+}
+
+.page .heart::after {
+    left: -10px;
+    top: 0;
+}
+
+@keyframes heartAnimation {
+    0% {
+        transform: rotate(45deg) scale(1);
+        opacity: 0;
+    }
+    50% {
+        transform: rotate(45deg) scale(1.2);
+        opacity: 1;
+    }
+    100% {
+        transform: rotate(45deg) scale(1);
+        opacity: 0;
+    }
+}
+
+/* Ensure letter content appears above animations */
+.letter-container {
+    position: relative;
+    z-index: 2;
+}
+
+.gallery-container {
+    position: relative;
+    z-index: 2;
+}
+
+/* Landing Page */
+.landing-page .content {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    text-align: center;
+    animation: fadeIn 1s ease-in-out;
+}
+
+.landing-page h1 {
+    font-size: 3em;
+    margin-bottom: 20px;
+    color: #895737;
+    text-shadow: 2px 2px 4px rgba(0,0,0,0.1);
+}
+
+/* Main Page */
+.main-page .letter-container {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    text-align: center;
+    max-width: 800px;
+    padding: 40px;
+    background: rgba(255, 255, 255, 0.9);
+    border-radius: 20px;
+    box-shadow: 0 10px 30px rgba(0,0,0,0.1);
+    animation: slideIn 0.8s ease-out;
+}
+
+.main-page .message {
+    font-size: 1.2em;
+    line-height: 1.6;
+    margin: 20px 0;
+    animation: fadeIn 1s ease-in-out;
+}
+
+.letter-paper {
+    background-color: #FFD7D7;
+    border-radius: 15px;
+    padding: 40px;
+    position: relative;
+    box-shadow: 0 10px 30px rgba(0,0,0,0.2);
+    max-width: 800px;
+    margin: 0 auto;
+    border: 2px solid #C08552;
+  }
+  
+  .letter-edge {
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    border-radius: 15px;
+    pointer-events: none;
+    background: 
+      radial-gradient(circle at 0 0, transparent 15px, #FFF2E1 15px),
+      radial-gradient(circle at 100% 0, transparent 15px, #FFF2E1 15px),
+      radial-gradient(circle at 100% 100%, transparent 15px, #FFF2E1 15px),
+      radial-gradient(circle at 0 100%, transparent 15px, #FFF2E1 15px);
+  }
+  
+  .letter-date {
+    text-align: right;
+    font-style: italic;
+    margin-bottom: 20px;
+    color: #895737;
+  }
+  
+  .letter-content {
+    position: relative;
+    z-index: 1;
+  }
+  
+  .letter-signature {
+    text-align: right;
+    margin-top: 30px;
+    font-style: italic;
+  }
+  
+  .letter-decoration {
+    position: absolute;
+    width: 100px;
+    height: 100px;
+  }
+  
+  .letter-decoration.left {
+    bottom: 20px;
+    left: 20px;
+    background-image: url('flower.png');
+    background-size: contain;
+    background-repeat: no-repeat;
+  }
+  
+  .letter-decoration.right {
+    top: 20px;
+    right: 20px;
+    background-image: url('butterfly.png');
+    background-size: contain;
+    background-repeat: no-repeat;
+  }
+
+  .letter-paper {
+    animation: paperFloat 3s ease-in-out infinite;
+  }
+  
+  @keyframes paperFloat {
+    0%, 100% { transform: translateY(0); }
+    50% { transform: translateY(-10px); }
+  }
+
+/* Gallery Page */
+.gallery-page .gallery-container {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    text-align: center;
+    animation: fadeIn 1s ease-in-out;
+    width: 90%;
+    max-width: 1200px;
+    /* Add scrolling support */
+    max-height: 90vh;
+    overflow-y: auto;
+    padding: 15px;
+    box-sizing: border-box;
+    color: #895737;
+}
+
+.gallery-page h1 {
+    font-size: 2.5em;
+    margin-bottom: 30px;
+    color: #895737;
+    text-shadow: 2px 2px 4px rgba(0,0,0,0.1);
+}
+
+.photo-grid {
+    position: relative;
+    height: 800px;
+    width: 100%;
+    max-width: 1000px;
+    margin: 0 auto;
+    padding: 20px;
+}
+
+.polaroid-frame {
+    position: absolute;
+    background: #FFF2E1;
+    padding: 20px;
+    border-radius: 10px;
+    box-shadow: 0 10px 30px rgba(0,0,0,0.1);
+    transition: all 0.5s ease;
+    border: 2px solid #C08552;
+    width: 300px;
+    animation: float 6s ease-in-out infinite;
+}
+
+/* Position and rotate each polaroid individually */
+.polaroid-frame:nth-child(1) {
+    top: 50px;
+    left: 50px;
+    transform: rotate(-8deg);
+    z-index: 2;
+}
+
+.polaroid-frame:nth-child(2) {
+    top: -1rem;
+    right: 50px;
+    transform: rotate(5deg);
+    z-index: 1;
+}
+
+.polaroid-frame:nth-child(3) {
+    bottom: 2rem;
+    left: 150px;
+    transform: rotate(-12deg);
+    z-index: 3;
+}
+
+.polaroid-frame:nth-child(4) {
+    bottom: 0rem;
+    right: 150px;
+    transform: rotate(10deg);
+    z-index: 2;
+}
+
+.polaroid-frame:hover {
+    transform: scale(1.05) rotate(0deg) !important;
+    z-index: 5 !important;
+    box-shadow: 0 15px 40px rgba(0,0,0,0.2);
+}
+
+@keyframes float {
+    0%, 100% { transform: translateY(0); }
+    50% { transform: translateY(-5px); }
+}
+
+.polaroid-frame img {
+    width: 100%;
+    height: auto;
+    border-radius: 5px;
+    margin-bottom: 15px;
+}
+
+.polaroid-caption {
+    text-align: center;
+    font-style: italic;
+    color: #5E3023;
+    font-size: 1.1em;
+    padding: 10px;
+    background: rgba(255,255,255,0.9);
+    border-radius: 5px;
+    box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+}
+
+/* Consolidated responsive styles */
+@media (max-width: 768px) {
+    .landing-page h1 {
+        font-size: 2.5em;
+    }
+    
+    .main-page .letter-container {
+        padding: 20px;
+        width: 90%;
+        max-width: none;
+    }
+    
+    .main-page .message {
+        font-size: 1.1em;
+    }
+
+    .letter-paper {
+        padding: 20px;
+        margin: 0;
+        width: 90%;
+    }
+
+    .letter-decoration {
+        width: 60px;
+        height: 60px;
+    }
+
+    .letter-decoration.left {
+        bottom: 10px;
+        left: 2px;
+    }
+
+    .letter-decoration.right {
+        top: 10px;
+        right: 10px;
+    }
+    
+    .gallery-page h1 {
+        font-size: 2em;
+    }
+
+    .photo-grid {
+        height: auto;
+        display: flex;
+        flex-direction: column;
+        gap: 10px;
+        padding: 5px;
+    }
+    
+    .polaroid-frame {
+        position: relative;
+        width: 100%;
+        max-width: 300px;
+        margin: 0 auto;
+        padding: 15px;
+        top: auto !important;
+        left: auto !important;
+        right: auto !important;
+        bottom: auto !important;
+        transform: rotate(0deg) !important;
+    }
+
+    .animated-button {
+        padding: 12px 24px;
+        font-size: 1.1em;
+        width: 100%;
+        max-width: 300px;
+        margin: 15px auto;
+    }
+
+    /* Reduce animation intensity on mobile for better performance */
+    .page .particle,
+    .page .flower,
+    .page .heart {
+        animation-duration: 8s;
+    }
+
+    .page .particle-container,
+    .page .flower-container,
+    .page .heart-container {
+        opacity: 0.6;
+    }
+}
+
+/* Add a smaller breakpoint for very narrow screens */
+@media (max-width: 480px) {
+    .landing-page h1 {
+        font-size: 2em;
+    }
+
+    .main-page .message {
+        font-size: 1em;
+    }
+
+    .letter-paper {
+        padding: 15px;
+    }
+
+    .letter-decoration {
+        width: 40px;
+        height: 40px;
+    }
+
+    .animated-button {
+        padding: 10px 20px;
+        font-size: 1em;
+    }
+}
+
+/* Buttons */
+.animated-button {
+    padding: 15px 30px;
+    font-size: 1.2em;
+    font-weight: bold;
+    color: #fff;
+    background: linear-gradient(45deg, #895737, #5E3023);
+    border: none;
+    border-radius: 25px;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    box-shadow: 0 5px 15px rgba(0,0,0,0.2);
+    margin-top: 20px;
+}
+
+.animated-button:hover {
+    transform: translateY(-3px);
+    box-shadow: 0 8px 25px rgba(0,0,0,0.3);
+}
+
+.animated-button:active {
+    transform: translateY(1px);
+}
+
+/* Animations */
+@keyframes fadeIn {
+    from { opacity: 0; transform: translateY(20px); }
+    to { opacity: 1; transform: translateY(0); }
+}
+
+@keyframes slideIn {
+    from { opacity: 0; transform: translate(-50%, -50%) scale(0.9); }
+    to { opacity: 1; transform: translate(-50%, -50%) scale(1); }
+}
